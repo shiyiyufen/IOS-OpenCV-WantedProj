@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *huntBtn;
-- (IBAction)switchCamera:(id)sender;
 - (IBAction)goSetting:(id)sender;
 
 - (IBAction)huntNow:(id)sender;

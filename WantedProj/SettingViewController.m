@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"设置";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.view.backgroundColor = [UIColor whiteColor];
 }
@@ -55,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,6 +80,12 @@
             cell.accessoryView = s;
             break;
         }
+        case 1:
+        {
+            cell.textLabel.text = @"请设置自己的头像";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+        }
         default:
             break;
     }
@@ -88,6 +95,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger row = indexPath.row;
+    switch (row) {
+        case 1:
+        {
+            NSLog(@"11 %@",@"11");
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

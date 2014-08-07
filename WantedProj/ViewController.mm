@@ -10,6 +10,8 @@
 #import "HuntViewController.h"
 #import "SettingViewController.h"
 #import <QuartzCore/QuartzCore.h>
+
+//#define  TEST 1
 @interface ViewController ()
 
 @end
@@ -101,12 +103,6 @@
     [self.navigationController pushViewController:hunt animated:YES];
 }
 
-- (IBAction)switchCamera:(id)sender
-{
-    if (photoCamera.defaultAVCaptureDevicePosition == AVCaptureDevicePositionBack) {
-        photoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
-    }else photoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
-}
 
 - (IBAction)goSetting:(id)sender
 {
@@ -116,6 +112,12 @@
 
 - (IBAction)huntNow:(UIButton *)sender
 {
+    
+#ifdef TEST
+    [self skipToNextPageWithImage:nil];
+    return;
+#endif
+    
     if (sender.isSelected)
     {
         [photoCamera takePicture];
@@ -136,7 +138,10 @@
       capturedImage:(UIImage *)image;
 {
     [camera stop];
-    [self skipToNextPageWithImage:image];
+    CGImageRef cgimg = CGImageCreateWithImageInRect([image CGImage],_adImageView.frame);
+    UIImage *target = [UIImage imageWithCGImage:cgimg];
+
+    [self skipToNextPageWithImage:target];
 }
 
 - (void)photoCameraCancel:(CvPhotoCamera*)camera;
