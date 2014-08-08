@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[ViewController photoCamera:capturedImage:]:ViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "(UIImage *)image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HuntViewController config]:HuntViewController.mm">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

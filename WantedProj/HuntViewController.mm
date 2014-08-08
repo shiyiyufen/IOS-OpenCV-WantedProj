@@ -77,6 +77,12 @@
     {
         self.image = [UIImage imageNamed:@"lena.jpg"];
     }
+    
+    if (self.image.size.width > 512)
+    {
+        self.image = [self.image rescaleImageToSize:CGSizeMake(512, 512)];
+    }
+    
     NSString* cascadePath = [[NSBundle mainBundle]
                              pathForResource:@"haarcascade_frontalface_alt"
                              ofType:@"xml"];
@@ -104,7 +110,7 @@
     PostcardPrinter::Parameters params;
     
     // Load image with face
-    UIImage* image = [self.image rescaleImageToSize:CGSizeMake(512, 512)];
+    UIImage* image = self.image;
     
     // Convert to grayscale
     UIImageToMat(image, params.face);
@@ -132,7 +138,7 @@
     
     if (!postcard.empty())
     {
-//        _printerImageView.image = MatToUIImage(postcard);
+        _printerImageView.image = MatToUIImage(postcard);
     }
     
     [self drawText];
