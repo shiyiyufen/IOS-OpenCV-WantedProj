@@ -11,5 +11,7 @@
 @interface HuntViewController : UIViewController
 
 @property (nonatomic, strong) UIImage *image;
+@property (strong, nonatomic) IBOutlet UIImageView *centerImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *fullImageView;
 
 @end

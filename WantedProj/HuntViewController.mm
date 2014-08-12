@@ -31,6 +31,7 @@
 
 @interface HuntViewController ()
 {
+    BOOL hasLoad_;
     NSArray *items_;
     cv::CascadeClassifier faceDetector;
 }
@@ -55,20 +56,44 @@
     
 }
 
+- (void)showAlertViewWithText:(NSString *)text tag:(NSUInteger)tag
+{
+    UIAlertView *notesView = [[UIAlertView alloc] initWithTitle:@"哇哦" message:text delegate:nil cancelButtonTitle:@"我知道我很美！" otherButtonTitles:nil, nil];
+    notesView.tag = tag;
+    [notesView show];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    hasLoad_ = NO;
     [self config];
-    
-    if ([self compare])
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (hasLoad_) return;
+    hasLoad_ = YES;
+    if ([[XYTool sharedXYTool] savedFace] && [self compare])
     {
         //绘制好的东西
+        items_ = @[@"哇，西施再世",@"Angela_Juan",@"美若天仙",@"你的美，天下无双",@"美女，签个名",@"我愿意为你做牛做马"];
+        int index = rand() % items_.count;
+        NSString *text = items_[index];
+        [self showAlertViewWithText:text tag:0];
+        self.fullImageView.image = [UIImage imageNamed:@"fj.jpg"];
+        self.centerImageView.image = self.image;
+        self.title = @"绝代佳人";
     }else
     {
         //通缉
+        self.fullImageView.hidden = YES;
+        self.centerImageView.hidden = YES;
         [self drawCriminal];
     }
 }
+
 
 - (void)config
 {
@@ -99,6 +124,27 @@
         [self.view addSubview:_printerImageView];
     }
     return _printerImageView;
+}
+
+- (UIImageView *)fullImageView
+{
+    if (_fullImageView == NULL)
+    {
+        _fullImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:_fullImageView];
+    }
+    return _fullImageView;
+}
+
+- (UIImageView *)centerImageView
+{
+    if (_centerImageView == NULL)
+    {
+        _centerImageView = [[UIImageView alloc] initWithFrame:(CGRect){0,0,200,200}];
+        _centerImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
+        [self.view addSubview:_centerImageView];
+    }
+    return _centerImageView;
 }
 
 #pragma mark -
@@ -138,7 +184,7 @@
     
     if (!postcard.empty())
     {
-        _printerImageView.image = MatToUIImage(postcard);
+        self.printerImageView.image = MatToUIImage(postcard);
     }
     
     [self drawText];
@@ -163,7 +209,8 @@
 - (BOOL)compare
 {
     UIImage *orgin = [self faceDetector:self.image];
-    UIImage *target = [UIImage imageNamed:@"avatar.png"];
+    UIImage *target = [self faceDetector:[[XYTool sharedXYTool] savedFace]];
+    target = [target rescaleImageToSize:orgin.size];
     if (orgin && target)
     {
         IplImage *img1 = [Utility CreateIplImageFromUIImage:orgin];
@@ -207,12 +254,13 @@
     }
     
     //面部
-    CGImageRef cgimg = CGImageCreateWithImageInRect([image CGImage], CGRectMake(someface.x, someface.y, someface.width, someface.height));
+    UIImage *result = MatToUIImage(faceImage);
+    CGImageRef cgimg = CGImageCreateWithImageInRect([result CGImage], CGRectMake(someface.x, someface.y, someface.width, someface.height));
     UIImage *target = [UIImage imageWithCGImage:cgimg];
-//    self.avatarImageView.image = target;
+
     CGImageRelease(cgimg);//用完一定要释放，否则内存泄露
     // Show resulting image
-    self.printerImageView.image = MatToUIImage(faceImage);
+    
     return target;
 }
 
@@ -251,7 +299,7 @@ int CompareHist(IplImage* image1, IplImage* image2)
     double chisqr = cvCompareHist(Histogram1, Histogram2, CV_COMP_CHISQR);
     double bhattacharyya = cvCompareHist(Histogram1, Histogram2, CV_COMP_BHATTACHARYYA);
     printf("CV_COMP_CHISQR : %.4f\n", chisqr);
-    printf("CV_COMP_BHATTACHARYYA : %.4f\n", cvCompareHist(Histogram1, Histogram2, bhattacharyya));
+    printf("CV_COMP_BHATTACHARYYA : %.4f\n", bhattacharyya);
     
     
     // CV_COMP_CORREL, CV_COMP_INTERSECT这两种直方图的比较，值越大，说明图形越相似
@@ -270,7 +318,7 @@ int CompareHist(IplImage* image1, IplImage* image2)
         cvReleaseImage(&targetImage);
     }
     
-    if (chisqr + bhattacharyya < 0.2 && correl + intersect > 1.8)
+    if (chisqr + bhattacharyya < 0.6 && correl + intersect > 1.6)
     {
         return 1;
     }

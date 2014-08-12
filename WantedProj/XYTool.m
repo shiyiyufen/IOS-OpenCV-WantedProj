@@ -9,6 +9,7 @@
 #import "XYTool.h"
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 #define CarmeraDirection @"CarmeraDirection"
+#define FaceKey @"face"
 
 @implementation XYTool
 + (XYTool *)sharedXYTool
@@ -33,6 +34,23 @@
     NSUserDefaults *defaults = DEFAULTS;
     [defaults setBool:front forKey:CarmeraDirection];
     [defaults synchronize];
+}
+
+- (void)saveFace:(UIImage *)face
+{
+    if (NULL == face) return;
+    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"avatar.png"] ;
+    NSData *data = UIImagePNGRepresentation(face);
+    if([data writeToFile:path atomically:YES])
+   {
+       NSLog(@"保存成功！");
+   }
+}
+
+- (UIImage *)savedFace
+{
+    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"avatar.png"] ;
+    return [UIImage imageWithContentsOfFile:path];
 }
 
 @end

@@ -14,4 +14,7 @@
 
 - (BOOL)cameraIsFront;
 - (void)setCameraFront:(BOOL)front;
+
+- (void)saveFace:(UIImage *)face;
+- (UIImage *)savedFace;
 @end

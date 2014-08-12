@@ -175,7 +175,7 @@
 {
     [camera stop];
     
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     CGFloat fSmallImgWidth = 300.0f;
     
     BOOL bIsRotate = NO;

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46CCC00619937E360060C214 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC00519937E360060C214 /* avatar.png */; };
+		461B09F9199A2348007B2197 /* fj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461B09F8199A2348007B2197 /* fj.jpg */; };
 		46CCC00819937EC30060C214 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC00719937EC30060C214 /* haarcascade_frontalface_alt.xml */; };
 		46D182B819931DC900081864 /* Utility.mm in Sources */ = {isa = PBXBuildFile; fileRef = 46D182B719931DC900081864 /* Utility.mm */; };
+		46FD0ABF1998CB860034B4A7 /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46FD0ABE1998CB860034B4A7 /* avatar.jpg */; };
 		46FE4064198C6FFA0055AD77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FE4063198C6FFA0055AD77 /* Foundation.framework */; };
 		46FE4066198C6FFA0055AD77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FE4065198C6FFA0055AD77 /* CoreGraphics.framework */; };
 		46FE4068198C6FFA0055AD77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FE4067198C6FFA0055AD77 /* UIKit.framework */; };
@@ -36,7 +37,7 @@
 		46FE40B6198C8F430055AD77 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE40B5198C8F430055AD77 /* RTLabel.m */; };
 		46FE40B8198C99FD0055AD77 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FE40B7198C99FD0055AD77 /* Default.png */; };
 		46FE40BA198C9CF80055AD77 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FE40B9198C9CF80055AD77 /* ad.png */; };
-		46FE40C2198F8BF60055AD77 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE40C1198F8BF60055AD77 /* SettingViewController.m */; };
+		46FE40C2198F8BF60055AD77 /* SettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 46FE40C1198F8BF60055AD77 /* SettingViewController.mm */; };
 		46FE40C5198F8D150055AD77 /* XYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE40C4198F8D150055AD77 /* XYTool.m */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46CCC00519937E360060C214 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		461B09F8199A2348007B2197 /* fj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fj.jpg; sourceTree = "<group>"; };
 		46CCC00719937EC30060C214 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
 		46D182B619931DC900081864 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		46D182B719931DC900081864 /* Utility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utility.mm; sourceTree = "<group>"; };
+		46FD0ABE1998CB860034B4A7 /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
 		46FE4060198C6FFA0055AD77 /* WantedProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WantedProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FE4063198C6FFA0055AD77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		46FE4065198C6FFA0055AD77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,7 +92,7 @@
 		46FE40B7198C99FD0055AD77 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		46FE40B9198C9CF80055AD77 /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad.png; sourceTree = "<group>"; };
 		46FE40C0198F8BF60055AD77 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		46FE40C1198F8BF60055AD77 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		46FE40C1198F8BF60055AD77 /* SettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingViewController.mm; sourceTree = "<group>"; };
 		46FE40C3198F8D150055AD77 /* XYTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTool.h; sourceTree = "<group>"; };
 		46FE40C4198F8D150055AD77 /* XYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,7 +176,7 @@
 				46FE40A9198C743B0055AD77 /* HuntViewController.h */,
 				46FE40AA198C743B0055AD77 /* HuntViewController.mm */,
 				46FE40C0198F8BF60055AD77 /* SettingViewController.h */,
-				46FE40C1198F8BF60055AD77 /* SettingViewController.m */,
+				46FE40C1198F8BF60055AD77 /* SettingViewController.mm */,
 				46FE407B198C6FFA0055AD77 /* Images.xcassets */,
 				46FE406A198C6FFA0055AD77 /* Supporting Files */,
 			);
@@ -215,10 +217,11 @@
 		46FE409A198C71500055AD77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				46CCC00519937E360060C214 /* avatar.png */,
+				46FD0ABE1998CB860034B4A7 /* avatar.jpg */,
 				46FE40B0198C7BC00055AD77 /* lena.jpg */,
 				46FE40B7198C99FD0055AD77 /* Default.png */,
 				46FE409D198C71640055AD77 /* texture.jpg */,
+				461B09F8199A2348007B2197 /* fj.jpg */,
 				46FE409B198C715F0055AD77 /* text.png */,
 				46FE4098198C71040055AD77 /* icon.png */,
 			);
@@ -311,16 +314,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				46FE40B1198C7BC00055AD77 /* lena.jpg in Resources */,
-				46CCC00619937E360060C214 /* avatar.png in Resources */,
 				46FE4099198C71040055AD77 /* icon.png in Resources */,
 				46CCC00819937EC30060C214 /* haarcascade_frontalface_alt.xml in Resources */,
 				46FE40BA198C9CF80055AD77 /* ad.png in Resources */,
 				46FE409C198C715F0055AD77 /* text.png in Resources */,
+				461B09F9199A2348007B2197 /* fj.jpg in Resources */,
 				46FE407C198C6FFA0055AD77 /* Images.xcassets in Resources */,
 				46FE409E198C71640055AD77 /* texture.jpg in Resources */,
 				46FE406E198C6FFA0055AD77 /* InfoPlist.strings in Resources */,
 				46FE40B8198C99FD0055AD77 /* Default.png in Resources */,
 				46FE4077198C6FFA0055AD77 /* Main.storyboard in Resources */,
+				46FD0ABF1998CB860034B4A7 /* avatar.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +347,7 @@
 				46FE40A8198C71940055AD77 /* PostcardPrinter.cpp in Sources */,
 				46FE40C5198F8D150055AD77 /* XYTool.m in Sources */,
 				46FE40B6198C8F430055AD77 /* RTLabel.m in Sources */,
-				46FE40C2198F8BF60055AD77 /* SettingViewController.m in Sources */,
+				46FE40C2198F8BF60055AD77 /* SettingViewController.mm in Sources */,
 				46D182B819931DC900081864 /* Utility.mm in Sources */,
 				46FE407A198C6FFA0055AD77 /* ViewController.mm in Sources */,
 				46FE4074198C6FFA0055AD77 /* AppDelegate.m in Sources */,
