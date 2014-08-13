@@ -64,8 +64,8 @@
         
         UIImagePickerController * picker = [[UIImagePickerController alloc]init];
         picker.delegate = self;
-        picker.allowsEditing = YES;  //是否可编辑
-        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        picker.allowsEditing = NO;  //是否可编辑
+//        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         //摄像头
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:^{

@@ -209,7 +209,7 @@
 - (BOOL)compare
 {
     UIImage *orgin = [self faceDetector:self.image];
-    UIImage *target = [self faceDetector:[[XYTool sharedXYTool] savedFace]];
+    UIImage *target = [[XYTool sharedXYTool] savedFace];
     target = [target rescaleImageToSize:orgin.size];
     if (orgin && target)
     {
@@ -245,12 +245,12 @@
         const cv::Rect& face = faces[i];
         someface = face;
         // Get top-left and bottom-right corner points
-        cv::Point tl(face.x, face.y);
-        cv::Point br = tl + cv::Point(face.width, face.height);
-        
-        // Draw rectangle around the face
-        cv::Scalar magenta = cv::Scalar(255, 0, 255);
-        cv::rectangle(faceImage, tl, br, magenta, 4, 8, 0);
+//        cv::Point tl(face.x, face.y);
+//        cv::Point br = tl + cv::Point(face.width, face.height);
+//        
+//        // Draw rectangle around the face
+//        cv::Scalar magenta = cv::Scalar(255, 0, 255);
+//        cv::rectangle(faceImage, tl, br, magenta, 4, 8, 0);
     }
     
     //面部
